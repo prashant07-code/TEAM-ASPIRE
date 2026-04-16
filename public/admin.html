@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Voice Grievance System</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell admin-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">Admin Console</p>
+          <h1>Complaint Monitoring Dashboard</h1>
+        </div>
+        <nav class="topnav">
+          <a href="/">Citizen Portal</a>
+          <a href="#dashboard">Summary</a>
+          <a href="#complaintsTable">Complaints</a>
+        </nav>
+      </header>
+
+      <main id="dashboard" class="admin-main">
+        <section class="hero admin-hero">
+          <div class="hero-copy">
+            <p class="badge">Real-time Status Sync</p>
+            <h2>Track complaint volumes, review categories, and update progress in the same action pipeline.</h2>
+            <p class="lead">
+              This page mirrors the PPT's admin update layer by exposing totals, category trends,
+              recent submissions, and status controls for every complaint.
+            </p>
+          </div>
+          <div class="hero-panel hero-panel-visual">
+            <div class="mini-card stage-card intake-stage">
+              <strong>Incoming Queue</strong>
+              <p>Fresh citizen complaints enter here with transcript, category, location, and tracking ID.</p>
+            </div>
+            <div class="mini-card stage-card validation-stage">
+              <strong>Operational Review</strong>
+              <p>Teams can validate category, update status, and measure which grievance types are rising fastest.</p>
+            </div>
+            <div class="mini-card stage-card output-stage">
+              <strong>Resolution Output</strong>
+              <p>Dashboard state stays aligned with complaint lifecycle from submitted through resolved.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="pipeline-band admin-band">
+          <article class="pipeline-pill intake-pill">
+            <span>A</span>
+            <strong>Citizen Intake</strong>
+          </article>
+          <article class="pipeline-pill validation-pill">
+            <span>B</span>
+            <strong>Dashboard Review</strong>
+          </article>
+          <article class="pipeline-pill output-pill">
+            <span>C</span>
+            <strong>Status Output</strong>
+          </article>
+        </section>
+
+        <section class="stats-grid" id="statsGrid"></section>
+
+        <section class="admin-grid">
+          <section class="card">
+            <div class="section-heading">
+              <p class="eyebrow">Status Overview</p>
+              <h3>Complaint pipeline counts</h3>
+            </div>
+            <div id="statusBreakdown" class="breakdown-list"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-heading">
+              <p class="eyebrow">Category Heatmap</p>
+              <h3>Top issue categories</h3>
+            </div>
+            <div id="categoryBreakdown" class="breakdown-list"></div>
+          </section>
+        </section>
+
+        <section class="card table-card">
+          <div class="section-heading">
+            <p class="eyebrow">Complaint Queue</p>
+            <h3>Recent complaints</h3>
+          </div>
+          <div id="tableMessage" class="status-strip">Loading complaints...</div>
+          <div class="table-wrap">
+            <table id="complaintsTable">
+              <thead>
+                <tr>
+                  <th>Tracking ID</th>
+                  <th>Citizen</th>
+                  <th>Category</th>
+                  <th>Location</th>
+                  <th>Transcript</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="complaintsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>
